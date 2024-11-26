@@ -11,9 +11,7 @@ const Header = () => {
   return (
     <header className="absolute top-0 w-full py-6 px-8">
       <nav className="flex items-center justify-between">
-        <div className="text-4xl font-light text-white font-cormorant">
-          tilde.
-        </div>
+        <div className="text-4xl font-base text-white font-garet">tilde.</div>
         <div className="hidden absolute  bottom-0 left-1/2 transform -translate-x-1/2 sm:flex gap-8 py-6">
           {services.map((service, index) => (
             <Link

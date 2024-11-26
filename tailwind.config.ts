@@ -98,6 +98,7 @@ const config = {
         inter: ["var(--font-inter)", "sans-serif"],
         poppins: ["var(--font-poppins)", "sans-serif"],
         cormorant: ["var(--font-cormorant)", "serif"],
+        garet: ["var(--font-garet)", "serif"],
       },
     },
   },
