@@ -4,7 +4,6 @@ import { ChevronsLeft, ChevronsRight } from "lucide-react";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import Header from "./Header";
 import Image from "next/image";
-import { useWindowSize } from "./hooks/use-window-size";
 
 const services = [
   "Web 2 Solutions",
