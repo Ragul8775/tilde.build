@@ -1,42 +1,93 @@
+"use client";
 import React from "react";
 import AnimatedBackground from "./AnimatedBackground";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
-import { Cover } from "./ui/cover";
 
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import Header from "./Header";
+import Image from "next/image";
+import { useWindowSize } from "./hooks/use-window-size";
+
+const services = [
+  "Web 2 Solutions",
+  "Web 3 Solutions",
+  "App Development",
+  "Data Analytics",
+  "UI & UX",
+  "Q & A",
+];
 
 const Hero = () => {
+  const { width } = useWindowSize();
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <AnimatedBackground />
       <div className="grainOverlay" />
       <Header />
-      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center gap-4 w-full">
+      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center gap-4 w-full top-10">
         <p className="font-poppins flex items-center gap-1  tracking-wider text-white font-light">
           <ChevronsLeft />
           SOFTWARE DEVELOPMENT STUDIO
           <ChevronsRight />
         </p>
-        <h1 className="mb-6 text-6xl font-power text-[#D6D6D6] sm:text-[96px]">
-          Crafting Digital
-          <br />
-          Experience
-        </h1>
-        <p className="text-white/75 max-w-2xl mb-8">
-          At Tilde, we craft pixel-perfect products that blend meticulous detail
-          with the beauty of craftsmanship, leaving a lasting impression and
-          elevating the user experience
-        </p>
-        {/*    <Cover className="text-4xl p-4">Coming Soon</Cover> */}
+        <div className="relative flex items-center flex-col">
+          <div className="absolute left-1/2 top-1/2 -translate-x-14 -translate-y-1/2 w-full hidden ">
+            {[
+              { text: "UI & UX", angle: 0 },
+              { text: "AI & DATA ANALYTICS", angle: 40 },
+              { text: "Q & A", angle: 180 },
+              { text: "Web 2 solutions", angle: 140 },
+              { text: "Web 3 solutions", angle: 220 },
+              { text: "App Development", angle: 320 },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="absolute rounded-full bg-white/10 px-6 py-2 text-sm text-white backdrop-blur-sm transition-transform hover:scale-110 flex items-center gap-2"
+                style={{
+                  transform: `
+                    rotate(${service.angle}deg)
+                    translateX(${width < 768 ? 160 : 400}px)
+                    rotate(-${service.angle}deg)
+                  `,
+                }}
+              >
+                <Image width={20} height={20} src="/tick.png" alt="ethereum" />
+                {service.text}
+              </div>
+            ))}
+          </div>
+          <h1 className="mb-6 text-6xl font-power metalic_gradient sm:text-[96px]">
+            Crafting Digital
+            <br />
+            Experiences
+          </h1>
+          <p className="text-white/75 max-w-2xl mb-8 ">
+            At Tilde, we craft pixel-perfect products that blend meticulous
+            detail with the beauty of craftsmanship, leaving a lasting
+            impression and elevating the user experience
+          </p>
 
-        <HoverBorderGradient
-          containerClassName="rounded-full"
-          as="button"
-          className="bg-white/5 text-white  flex items-center space-x-2 "
-        >
-          Coming Soon
-        </HoverBorderGradient>
+          <div className="flex justify-center mt-4">
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="button"
+              className="bg-white/5 text-white flex items-center space-x-2 px-6 py-3"
+            >
+              Coming Soon
+            </HoverBorderGradient>
+          </div>
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            {services.map((service, index) => (
+              <div
+                className="rounded-full bg-white/10 px-6 py-2 text-sm text-white backdrop-blur-sm flex gap-2 items-center "
+                key={index}
+              >
+                <Image width={20} height={20} src="/tick.png" alt="ethereum" />
+                {service}
+              </div>
+            ))}
+          </div>
+        </div>
       </main>
     </section>
   );

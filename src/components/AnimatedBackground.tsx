@@ -5,10 +5,11 @@ import {
   Canvas,
   useFrame,
   extend,
-  ReactThreeFiber,
   useThree,
+  RootState,
 } from "@react-three/fiber";
 import { shaderMaterial, Plane } from "@react-three/drei";
+import { useWindowSize } from "./hooks/use-window-size";
 
 const fragmentShader = `uniform vec2 u_resolution;
 uniform float u_time;
@@ -107,10 +108,23 @@ const MyShaderMaterial = shaderMaterial(
 extend({ MyShaderMaterial });
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      myShaderMaterial: ReactThreeFiber.ShaderMaterialProps & {
-        // Add any custom props here if necessary
+      myShaderMaterial: {
+        ref?: React.Ref<MyShaderMaterialType>;
+        attach?: string;
+        args?: string[];
+        uniforms?: {
+          u_color?: { value: THREE.Color };
+          u_background?: { value: THREE.Vector4 };
+          u_speed?: { value: number };
+          u_detail?: { value: number };
+          u_time?: { value: number };
+          u_mouse?: { value: [number, number] };
+          u_resolution?: { value: [number, number] };
+        };
+        side?: THREE.Side;
       };
     }
   }
@@ -118,18 +132,17 @@ declare global {
 
 const TextureMesh = () => {
   const materialRef = useRef<MyShaderMaterialType>(null);
-  const { size } = useThree();
-
+  const { size, viewport } = useThree();
+  const { width } = useWindowSize();
+  const widthValue: [number, number] =
+    width < 768 ? [1440, 1024] : [size.width, size.height];
   useEffect(() => {
     if (materialRef.current) {
-      materialRef.current.uniforms.u_resolution.value = [
-        size.width,
-        size.height,
-      ];
+      materialRef.current.uniforms.u_resolution.value = widthValue;
     }
-  }, [size]);
+  }, [widthValue]);
 
-  useFrame((state: any) => {
+  useFrame((state: RootState) => {
     const { clock, mouse } = state;
 
     if (materialRef.current) {
@@ -142,7 +155,7 @@ const TextureMesh = () => {
   });
 
   return (
-    <Plane args={[size.width, size.height]}>
+    <Plane args={[viewport.width, viewport.height]}>
       <myShaderMaterial ref={materialRef} side={THREE.DoubleSide} />
     </Plane>
   );
@@ -162,7 +175,7 @@ const AnimatedBackground = () => {
       dpr={[1, 2]}
       camera={{ position: [0, 0, 1], near: 0.1, far: 1000 }}
       style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100%",

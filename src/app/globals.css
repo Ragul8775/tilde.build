@@ -67,3 +67,55 @@
     @apply bg-background text-foreground;
   }
 }
+.grainOverlay {
+  z-index: 999;
+  position: fixed;
+  content: "";
+  height: 300%;
+  width: 300%;
+  top: -100%;
+  left: -50%;
+  pointer-events: none;
+  user-select: none;
+  background-image: url("https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1732568755~exp=1732572355~hmac=22bf3f30da5a36b823bab5a001351707ae5039682ae69f2feb0b552234f55eeb&w=740");
+  opacity: 0.05;
+  animation: noise 8s steps(10) infinite;
+}
+
+@keyframes noise {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+.metalic_gradient {
+  @apply bg-gradient-to-r from-[#dbdbdb] via-[#f2e9ff] to-[#dbdbdb] bg-clip-text text-transparent;
+}
