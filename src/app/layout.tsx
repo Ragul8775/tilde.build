@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "Tilde",
     images: [
       {
-        url: "https://tilde.build/og-image.jpg",
+        url: "https://tilde.build/tildeCard.png",
         width: 1200,
         height: 630,
         alt: "Tilde - Crafting Digital Experiences",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: "Tilde - Crafting Digital Experiences",
     description:
       "Pixel-perfect software solutions for Web2, Web3, apps, and data analytics.",
-    images: ["https://tilde.build/twitter-card.jpg"],
+    images: ["https://tilde.build/tildeCard.png"],
   },
   themeColor: "#0a0a0a",
   viewport: "width=device-width, initial-scale=1.0",
