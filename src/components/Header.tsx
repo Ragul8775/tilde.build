@@ -27,6 +27,7 @@ const Header = () => {
           containerClassName="rounded-full"
           as="button"
           className="bg-transparent text-white flex items-center space-x-2 px-4 sm:px-6 py-1 sm:py-2"
+          onClick={() => (window.location.href = "services@tilde.build")}
         >
           Contact Us
         </HoverBorderGradient>
