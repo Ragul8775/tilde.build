@@ -51,7 +51,7 @@ const Hero = () => {
               as="button"
               className="bg-white/5 text-white flex items-center space-x-2 px-6 py-3"
             >
-              Coming Soon
+              Coming Soon..
             </HoverBorderGradient>
           </div>
           <div className="mt-12  hidden sm:flex flex-wrap justify-center gap-2 sm:gap-3 max-w-[90%] sm:max-w-[100%] mx-auto">
