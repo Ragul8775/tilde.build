@@ -45,7 +45,7 @@ const garet = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Tilde - Crafting Digital Experiences",
   description:
     "Tilde is a cutting-edge software development studio specializing in Web2, Web3, App Development, Data Analytics, and UI/UX design. We deliver pixel-perfect, high-performance solutions tailored to elevate your business.",
@@ -61,7 +61,6 @@ export const metadata: Metadata = {
     "Innovative Technology",
     "Pixel-Perfect Design",
   ],
-  authors: [{ name: "Tilde Development Team", url: "https://tilde.build" }],
   openGraph: {
     title: "Tilde - Crafting Digital Experiences",
     description:
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
     siteName: "Tilde",
     images: [
       {
-        url: "https://tilde.build/tildeCard.png",
+        url: "https://tilde.build/meta/tildeCard.png",
         width: 1200,
         height: 630,
         alt: "Tilde - Crafting Digital Experiences",
@@ -89,7 +88,6 @@ export const metadata: Metadata = {
     images: ["https://tilde.build/tildeCard.png"],
   },
   themeColor: "#0a0a0a",
-  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
