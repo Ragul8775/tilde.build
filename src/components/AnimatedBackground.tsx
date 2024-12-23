@@ -175,7 +175,7 @@ const AnimatedBackground = () => {
       dpr={[1, 2]}
       camera={{ position: [0, 0, 1], near: 0.1, far: 1000 }}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",

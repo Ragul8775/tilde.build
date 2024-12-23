@@ -1,14 +1,16 @@
+import { Inknut_Antiqua } from "next/font/google";
 import type { Config } from "tailwindcss";
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 const config = {
   darkMode: ["class"],
+  mode: "jit",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{html,ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -20,6 +22,9 @@ const config = {
       },
     },
     extend: {
+      transitionTimingFunction: {
+        "custom-ease": "cubic-bezier(0.65, 0.05, 0.36, 1)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -99,6 +104,8 @@ const config = {
         poppins: ["var(--font-poppins)", "sans-serif"],
         cormorant: ["var(--font-cormorant)", "serif"],
         garet: ["var(--font-garet)", "serif"],
+        instrument: ["var(--font-instrument)", "serif"],
+        inknut: ["var(--font-inknut)", "serif"],
       },
     },
   },

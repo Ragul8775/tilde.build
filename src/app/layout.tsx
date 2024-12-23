@@ -1,8 +1,13 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Poppins, Inter, Cormorant_Garamond } from "next/font/google";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import {
+  Poppins,
+  Inter,
+  Cormorant_Garamond,
+  Instrument_Serif,
+  Inknut_Antiqua,
+} from "next/font/google";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -43,6 +48,20 @@ const garet = localFont({
   src: "./fonts/Garet-Book.woff",
   variable: "--font-garet",
   weight: "100 900",
+});
+
+const instruement = Instrument_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrument",
+  weight: ["400"],
+});
+
+const inknut = Inknut_Antiqua({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inknut",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -98,10 +117,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${power.variable} ${power.className} ${satoshi.variable} ${poppins.variable} ${inter.variable} ${cormorant.variable} ${garet.variable} antialiased relative w-full h-full`}
+        className={`${geistSans.variable} ${power.variable} ${power.className} ${inknut.variable} ${satoshi.variable} ${poppins.variable} ${inter.variable} ${cormorant.variable} ${garet.variable} ${instruement.variable} antialiased relative w-full h-full`}
       >
-        <AnimatedBackground />
-        <div className="grainOverlay" />
         {children}
       </body>
     </html>
