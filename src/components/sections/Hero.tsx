@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import Header from "./Header";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
+import Header from "../Header";
 import Image from "next/image";
+import AnimatedBackground from "../AnimatedBackground";
 
 const services = [
   "Web 2 Solutions",
@@ -26,8 +27,10 @@ const servicesMob = [
 const Hero = () => {
   return (
     <section className="relative w-full h-screen">
+      <AnimatedBackground />
+      <div className="grainOverlay" />
       <Header />
-      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center gap-4 w-full top-24 sm:top-0">
+      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center gap-4 w-full top-12 sm:top-0">
         <p className="font-poppins flex items-center gap-1 tracking-wider text-white font-light">
           <ChevronsLeft />
           SOFTWARE DEVELOPMENT STUDIO
