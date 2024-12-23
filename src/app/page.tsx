@@ -1,11 +1,9 @@
-import Hero from "@/components/sections/Hero";
-import Why from "@/components/sections/Why";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <div className=" mx-auto">
       <Hero />
-      <Why />
     </div>
   );
 }

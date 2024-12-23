@@ -115,19 +115,7 @@
     transform: translate(-10%, 10%);
   }
 }
-@layer utilities {
 
-  .metalic_gradient {
-    @apply bg-gradient-to-r from-[#dbdbdb] via-[#f2e9ff] to-[#dbdbdb] bg-clip-text text-transparent;
-  }
-  
-  .after-custom-ease {
-    transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  
-
-}
-
-.nav-hover-btn {
-  @apply relative  text-xs  text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-100 after:transition-transform after:duration-300 after:after-custom-ease hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
+.metalic_gradient {
+  @apply bg-gradient-to-r from-[#dbdbdb] via-[#f2e9ff] to-[#dbdbdb] bg-clip-text text-transparent;
 }
