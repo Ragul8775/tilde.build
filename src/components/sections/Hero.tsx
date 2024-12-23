@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import Header from "./Header";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
+import Header from "../Header";
 import Image from "next/image";
 
 const services = [
