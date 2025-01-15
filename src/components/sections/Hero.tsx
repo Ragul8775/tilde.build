@@ -11,7 +11,7 @@ const services = [
   "App Development",
   "Data Analytics",
   "UI & UX",
-  "Q & A",
+  "Q&A",
 ];
 
 const servicesMob = [
